@@ -53,7 +53,8 @@ Detects new or updated Airtable records using the “last modified time” field
 **Configuration Notes**  
 - Set the Airtable base ID, table ID, and trigger field.
 
-_Insert Screenshot: Airtable trigger node configuration and connection map_
+![Airtable Trigger Node]()
+
 
 ---
 
@@ -65,7 +66,8 @@ Updates the Airtable record status to `"scheduled"` and passes required fields (
 **Configuration Notes**  
 - Map the Status field and relevant metadata needed for downstream nodes.
 
-_Insert Screenshot: Airtable update node settings_
+![Update Airtable Record Node]()
+
 
 ---
 
@@ -78,7 +80,8 @@ Sends a POST request to Flux3 with the prompt and specifications to generate cre
 - Request body: `prompt`, `width`, `height`.  
 - Headers: `Accept` and `Content-Type` (keep API keys redacted or omitted in screenshots).
 
-_Insert Screenshot: HTTP Request node for Flux3 API request_
+![Flux3 HTTP Request Node]()
+
 
 ---
 
@@ -90,7 +93,8 @@ Delays the workflow to allow time for asset generation or to support scheduled p
 **Configuration Notes**  
 - Configure time-based or event-based waiting as needed.
 
-_Insert Screenshot: Wait node setup_
+![Wait Node]()
+
 
 ---
 
@@ -102,7 +106,8 @@ Polls the Flux3 endpoint to check job completion and fetches the creative asset 
 **Configuration Notes**  
 - Use the poll URL returned from the Flux3 job response.
 
-_Insert Screenshot: HTTP Request node for polling Flux3 result_
+![Poll Flux3 Result Node]()
+
 
 ---
 
@@ -115,7 +120,8 @@ Fetches the generated creative file so it can be used inside the template.
 - Download from the result URL.  
 - Set the response format to `file`.
 
-_Insert Screenshot: HTTP Download node for asset_
+![Download Asset Node]()
+
 
 ---
 
@@ -128,7 +134,8 @@ Sends the generated asset, logo, and footer text to Placid for branded social te
 - Configure template layers: background image, logo, footer text.  
 - Map inputs from Airtable fields and previous nodes.
 
-_Insert Screenshot: Placid API node_
+![Placid API Node]()
+
 
 ---
 
@@ -141,7 +148,8 @@ Retrieves the finished template output (image/card) from Placid.
 - Map the output URL from Placid.  
 - Set response type to `file`.
 
-_Insert Screenshot: HTTP Download node for Placid result_
+![Download Placid Result Node]()
+
 
 ---
 
@@ -154,7 +162,8 @@ Uploads the formatted asset to a designated Google Drive folder for storage and 
 - Set destination folder ID.  
 - Generate the file name dynamically (e.g., based on post title or timestamp).
 
-_Insert Screenshot: Google Drive upload node_
+![Google Drive Upload Node]()
+
 
 ---
 
@@ -166,7 +175,8 @@ Updates or sets metadata such as public share links before final distribution.
 **Configuration Notes**  
 - Use a Set/Edit Fields node to build a clean output object (e.g., `publicUrl`, `fileName`, `platforms`).
 
-_Insert Screenshot: Set/Edit Fields node_
+![Set/Edit Fields Node]()
+
 
 ---
 
@@ -179,7 +189,8 @@ Makes the file publicly accessible and retrieves a share link for publishing.
 - Configure permissions so “anyone with the link” can view.  
 - Map the resulting share URL for use in publishing or notifications.
 
-_Insert Screenshot: Google Drive share node setup_
+![Google Drive Share Node]()
+
 
 ---
 
