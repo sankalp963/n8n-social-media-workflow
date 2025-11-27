@@ -53,7 +53,7 @@ Detects new or updated Airtable records using the “last modified time” field
 **Configuration Notes**  
 - Set the Airtable base ID, table ID, and trigger field.
 
-![Airtable Trigger Node]()
+![Airtable Trigger Node](https://github.com/sankalp963/n8n-social-media-workflow/blob/a7ca0af0148b4fa61521c0eb82fd4a005e3198a0/images/airtable%20trigger.png)
 
 
 ---
