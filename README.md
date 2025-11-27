@@ -66,8 +66,9 @@ Updates the Airtable record status to `"scheduled"` and passes required fields (
 **Configuration Notes**  
 - Map the Status field and relevant metadata needed for downstream nodes.
 
-![Update Airtable Record Node]()
+![Update Airtable Record Node](https://github.com/sankalp963/n8n-social-media-workflow/blob/46e833cd4d1632a50595229dde09d64b8bccda81/images/update%20record.png)
 
+![Update Airtable Record Node2](https://github.com/sankalp963/n8n-social-media-workflow/blob/46e833cd4d1632a50595229dde09d64b8bccda81/images/update%20record%202.png)
 
 ---
 
@@ -80,7 +81,7 @@ Sends a POST request to Flux3 with the prompt and specifications to generate cre
 - Request body: `prompt`, `width`, `height`.  
 - Headers: `Accept` and `Content-Type` (keep API keys redacted or omitted in screenshots).
 
-![Flux3 HTTP Request Node]()
+![Flux3 HTTP Request Node](https://github.com/sankalp963/n8n-social-media-workflow/blob/46e833cd4d1632a50595229dde09d64b8bccda81/images/flux3%20node.png)
 
 
 ---
@@ -93,7 +94,7 @@ Delays the workflow to allow time for asset generation or to support scheduled p
 **Configuration Notes**  
 - Configure time-based or event-based waiting as needed.
 
-![Wait Node]()
+![Wait Node](https://github.com/sankalp963/n8n-social-media-workflow/blob/46e833cd4d1632a50595229dde09d64b8bccda81/images/wait%20node.png)
 
 
 ---
@@ -106,7 +107,7 @@ Polls the Flux3 endpoint to check job completion and fetches the creative asset 
 **Configuration Notes**  
 - Use the poll URL returned from the Flux3 job response.
 
-![Poll Flux3 Result Node]()
+![Poll Flux3 Result Node](https://github.com/sankalp963/n8n-social-media-workflow/blob/46e833cd4d1632a50595229dde09d64b8bccda81/images/polling%20node.png)
 
 
 ---
@@ -120,7 +121,7 @@ Fetches the generated creative file so it can be used inside the template.
 - Download from the result URL.  
 - Set the response format to `file`.
 
-![Download Asset Node]()
+![Download Asset Node](https://github.com/sankalp963/n8n-social-media-workflow/blob/46e833cd4d1632a50595229dde09d64b8bccda81/images/download%20node.png)
 
 
 ---
@@ -134,8 +135,11 @@ Sends the generated asset, logo, and footer text to Placid for branded social te
 - Configure template layers: background image, logo, footer text.  
 - Map inputs from Airtable fields and previous nodes.
 
-![Placid API Node]()
+![Placid API Node](https://github.com/sankalp963/n8n-social-media-workflow/blob/46e833cd4d1632a50595229dde09d64b8bccda81/images/placeid%20node.png)
 
+![Placid API Node](https://github.com/sankalp963/n8n-social-media-workflow/blob/46e833cd4d1632a50595229dde09d64b8bccda81/images/placeid%202.png)
+
+![Placid API Node](https://github.com/sankalp963/n8n-social-media-workflow/blob/46e833cd4d1632a50595229dde09d64b8bccda81/images/placeid%203.png)
 
 ---
 
@@ -148,7 +152,7 @@ Retrieves the finished template output (image/card) from Placid.
 - Map the output URL from Placid.  
 - Set response type to `file`.
 
-![Download Placid Result Node]()
+![Download Placid Result Node](https://github.com/sankalp963/n8n-social-media-workflow/blob/46e833cd4d1632a50595229dde09d64b8bccda81/images/placid%20download%20node.png)
 
 
 ---
@@ -162,7 +166,7 @@ Uploads the formatted asset to a designated Google Drive folder for storage and 
 - Set destination folder ID.  
 - Generate the file name dynamically (e.g., based on post title or timestamp).
 
-![Google Drive Upload Node]()
+![Google Drive Upload Node](https://github.com/sankalp963/n8n-social-media-workflow/blob/46e833cd4d1632a50595229dde09d64b8bccda81/images/google%20drive%20uplode%20node.png)
 
 
 ---
@@ -175,7 +179,7 @@ Updates or sets metadata such as public share links before final distribution.
 **Configuration Notes**  
 - Use a Set/Edit Fields node to build a clean output object (e.g., `publicUrl`, `fileName`, `platforms`).
 
-![Set/Edit Fields Node]()
+![Set/Edit Fields Node](https://github.com/sankalp963/n8n-social-media-workflow/blob/46e833cd4d1632a50595229dde09d64b8bccda81/images/edit%20field%20node.png)
 
 
 ---
@@ -189,7 +193,7 @@ Makes the file publicly accessible and retrieves a share link for publishing.
 - Configure permissions so “anyone with the link” can view.  
 - Map the resulting share URL for use in publishing or notifications.
 
-![Google Drive Share Node]()
+![Google Drive Share Node](https://github.com/sankalp963/n8n-social-media-workflow/blob/46e833cd4d1632a50595229dde09d64b8bccda81/images/drive%20share%20node.png)
 
 
 ---
